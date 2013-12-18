@@ -3,10 +3,10 @@ package simulation;
 
 import housedata.Housedata;
 
-public class ExchangeFurnitureSearch {
+public class ExchangeHPASearch {
 	private int Cost = Integer.MAX_VALUE;
 	
-	public ExchangeFurnitureSearch ( Housedata A1, Housedata A2 ) {
+	public ExchangeHPASearch ( Housedata A1, Housedata A2 ) {
 		FurnitureSearch (A2, A2);
 	}
 	

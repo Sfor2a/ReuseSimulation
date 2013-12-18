@@ -29,6 +29,15 @@ public class CostAndRangeRanking {
 		CP.ConnectfromFile("D:\\Users\\Sforza\\Dropbox\\プログラム\\Mapdata2.txt"); //地図モデル作成
 		
 		HouseSearch ( HouseNumber, RF, CP );
+		
+		for ( int i = 0; i < getCARRList().size(); i++ ) {
+			Housedata House1 = getCARRList().get(i).getHouseC1();
+			for ( int j = 0; j < getCARRList().size(); j++ ) {
+				Housedata House2 = getCARRList().get(j).getHouseC1();
+				
+			}
+			
+		}
 	}
 	
 	private void HouseSearch ( int HouseNumber, ReadFile RF, ConnectPoint CP ) { //家の総当たりメソッド
@@ -72,7 +81,7 @@ public class CostAndRangeRanking {
 	}
 	
 	private int FurnitureCost ( Housedata A1, Housedata A2 ) { //家具のコストを返すよ
-		ExchangeFurnitureSearch EFS = new ExchangeFurnitureSearch ( A1, A2 );
+		ExchangeHPASearch EFS = new ExchangeHPASearch ( A1, A2 );
 		return EFS.getCost();
 	}
 }
