@@ -27,8 +27,8 @@ public class Rangefinder {
 				int Costs = getRouteCosts ( CP, 
 						CP.getPitList ().get ( i ).getRoutedataOut ( j ).getTo ().getName (), CP.getPitList ().get ( i ).getName() ); //道路のコスト取得
 				
-				RouteArray[i][l] = (int) Length* Costs; //距離を代入（おもて
-				RouteArray[l][i] = (int) Length/Costs ; //距離を代入（うら
+				RouteArray[i][l] = (int) Length * Costs; //距離を代入（おもて
+				RouteArray[l][i] = (int) Length * Costs ; //距離を代入（うら
 			}
 		}
 		
