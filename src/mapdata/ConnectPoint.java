@@ -13,12 +13,7 @@ import java.util.List;
 public class ConnectPoint extends ConnectPoint_Elements {
 	private List < Point > PointList = new ArrayList <> (); //ポイントそのもののリスト
 	private List < Routedata > RouteList = new ArrayList <> (); //道のリスト
-	private static int ConnectPointNum; //ID加算用変数
-	
-	public ConnectPoint () { //コンストラクタ(ID加算)
-		ID = ConnectPointNum++; //ライフサイクルを作成するたびにIDを加算
-	}
-	
+
 	//セッター部
 	public void setPoint ( Point Pit ) { //ポイントリストのセッター
 		PointList.add ( Pit );
