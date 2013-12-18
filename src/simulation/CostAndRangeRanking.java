@@ -3,20 +3,26 @@ package simulation;
 import java.util.ArrayList;
 import java.util.List;
 
+import housedata.HPAdata;
 import housedata.Housedata;
 import housedata.ReadFile;
 import mapdata.ConnectPoint;
 
 public class CostAndRangeRanking {
 	private List < CostAndRangeRankingList > CARRList = new ArrayList <> ();
-
-	
+	private HPAdata HPA2;
 	//ゲッター・セッター
 	public List<CostAndRangeRankingList> getCARRList() {
 		return CARRList;
 	}
 	public void setCARRList(CostAndRangeRankingList costAndRangeRankingList) {
 		CARRList.add (costAndRangeRankingList );
+	}
+	public HPAdata getHPA2 () {
+		return HPA2;
+	}
+	public void setHPA2 ( HPAdata HPAAA ) {
+		HPA2 = HPAAA;
 	}
 
 	public CostAndRangeRanking () {
@@ -30,14 +36,19 @@ public class CostAndRangeRanking {
 		
 		HouseSearch ( HouseNumber, RF, CP );
 		
+		CostAndRangeRankingList HighScore; //ハイスコアな家を用意しておく
 		for ( int i = 0; i < getCARRList().size(); i++ ) {
 			Housedata House1 = getCARRList().get(i).getHouseC1();
-			for ( int j = 0; j < getCARRList().size(); j++ ) {
+			HighScore = getCARRList().get(i);
+			for ( int j = 0; j< getCARRList().size(); j++ ) {
 				Housedata House2 = getCARRList().get(j).getHouseC1();
-				
+				if ( House2.getName().equals( House1.getName() ) && HighScore.getScore() < getCARRList().get(j).getScore() ) { //同じ名前の家の時に、スコアの高い家がみつかったら
+					HighScore = getCARRList().get(j); //ハイスコアのところを更新
+				}
 			}
-			
+			new Exchange ( HighScore.getHouseC1(), HighScore.getHouseC2(), HighScore.getHPA() ); //ハイスコアなもので交換するよ
 		}
+		new MinusDur ( RF );
 	}
 	
 	private void HouseSearch ( int HouseNumber, ReadFile RF, ConnectPoint CP ) { //家の総当たりメソッド
@@ -48,7 +59,7 @@ public class CostAndRangeRanking {
 				if ( A1 != A2 && A2 != A1 ) { //iとjが違うときだけ交換するよ
 					int Range = MARange ( A1, A2, CP );
 					int Cost = FurnitureCost ( A1, A2 );
-					new CostAndRangeRankingList ( Cost, Range, A1, A2, this );
+					new CostAndRangeRankingList ( Cost, Range, A1, A2, this, getHPA2() );
 				}
 			}
 		}
@@ -82,6 +93,7 @@ public class CostAndRangeRanking {
 	
 	private int FurnitureCost ( Housedata A1, Housedata A2 ) { //家具のコストを返すよ
 		ExchangeHPASearch EFS = new ExchangeHPASearch ( A1, A2 );
+		setHPA2 ( EFS.getHPA() );
 		return EFS.getCost();
 	}
 }
@@ -92,6 +104,8 @@ class CostAndRangeRankingList {
 	private int Range;
 	private Housedata C1;
 	private Housedata C2;
+	private int Score;
+	private HPAdata HPA1;
 	
 	public int getCost() {
 		return Cost;
@@ -99,8 +113,18 @@ class CostAndRangeRankingList {
 	public void setCost(int cost) {
 		Cost = cost;
 	}
+	public void setScore(int score) {
+		Score = score;
+	}
+	
 	public int getRange() {
 		return Range;
+	}
+	public int getScore() {
+		return Score;
+	}
+	public HPAdata getHPA () {
+		return HPA1;
 	}
 	public void setRange(int range) {
 		Range = range;
@@ -114,16 +138,20 @@ class CostAndRangeRankingList {
 	public void setA1(Housedata a1) {
 		C1 = a1;
 	}
-	
 	public void setA2(Housedata a2) {
 		C2 = a2;
 		}
+	public void setHPA ( HPAdata HPAA ) {
+		HPA1 = HPAA;
+	}
 	
-	public CostAndRangeRankingList ( int Co, int Ra, Housedata a1, Housedata a2, CostAndRangeRanking CARR ) {
+	public CostAndRangeRankingList ( int Co, int Ra, Housedata a1, Housedata a2, CostAndRangeRanking CARR, HPAdata HPA3 ) {
 		setCost ( Co );
 		setRange ( Ra );
 		setA1 ( a1 );
 		setA2 ( a2 );
+		setScore ( Co * Ra );
+		setHPA( HPA3 );
 		CARR.setCARRList( this );
 	}
 	

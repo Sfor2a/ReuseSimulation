@@ -1,10 +1,12 @@
 package simulation;
 
 
+import housedata.HPAdata;
 import housedata.Housedata;
 
 public class ExchangeHPASearch {
 	private int Cost = Integer.MAX_VALUE;
+	private HPAdata HPA1;
 	
 	public ExchangeHPASearch ( Housedata A1, Housedata A2 ) {
 		FurnitureSearch (A2, A2);
@@ -14,8 +16,14 @@ public class ExchangeHPASearch {
 	public int getCost() {
 		return Cost;
 	}
+	public HPAdata getHPA() {
+		return HPA1;
+	}
 	public void setCost ( int co ) {
 		Cost = co;
+	}
+	public void setHPAdata ( HPAdata HPA ) {
+		HPA1 = HPA;
 	}
 	
 	
@@ -26,6 +34,7 @@ public class ExchangeHPASearch {
 		int str6 = A2.getFurnitureList ().get ( k ).getTermValue(); //相手の価値をみて
 		if ( str3 <= str4 && str5 >= str6 && str6 != 0 ) { //相手の耐久値が自分のトキよりおっきければ　かつ　コストが見合えば
 			setCost ( str6 );
+			setHPAdata ( A2.getFurnitureList ().get ( k ) );
 		}
 	}
 	
