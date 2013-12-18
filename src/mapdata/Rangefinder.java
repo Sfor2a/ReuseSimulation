@@ -3,30 +3,44 @@ package mapdata;
 public class Rangefinder {
 	public Rangefinder ( ConnectPoint CP, int [][] RouteArray ) {
 		
-		int PointNum = CP.getPitList ().size (); //åœ°ç‚¹ã®æ•°
+		int PointNum = CP.getPitList ().size (); //’n“_‚Ì”
 		
-		for ( int i = 0; i < PointNum; i++ ) { //åœ°ç‚¹1ã‹ã‚‰ãã‚Šã‹ãˆã™
+		for ( int i = 0; i < PointNum; i++ ) { //’n“_1‚©‚ç‚­‚è‚©‚¦‚·
 			int RouteOutNum = CP.getPitList ().get ( i ).getRteOutList ().size ();
 			for ( int j = 0; j < RouteOutNum; j++ ) {
 				double x1 = CP.getPitList ().get ( i ).getRoutedataOut ( j ).getTo ().getX ();
 				double y1 = CP.getPitList ().get ( i ).getRoutedataOut ( j ).getTo ().getY ();
 				double x2 = CP.getPitList ().get ( i ).getX ();
 				double y2 = CP.getPitList ().get ( i ).getY ();
-				double Length = Math.sqrt ( ( x2 - x1 ) * ( x2 - x1 ) + ( y2 - y1 ) * ( y2 - y1 ) ); //çµã°ã‚Œã¦ã„ã‚‹2ç‚¹é–“ã®è·é›¢ã‚’è¨ˆç®—
+				double Length = Math.sqrt ( ( x2 - x1 ) * ( x2 - x1 ) + ( y2 - y1 ) * ( y2 - y1 ) ); //Œ‹‚Î‚ê‚Ä‚¢‚é2“_ŠÔ‚Ì‹——£‚ğŒvZ
 				
 				String AiteName = CP.getPitList ().get ( i ).getRoutedataOut ( j ).getTo ().getName ();
 				int l = 0;
 				
-				for ( int k = 0; k < PointNum; k++ ) { //ã¤ãªãŒã‚‹å…ˆã®ãƒã‚¤ãƒ³ãƒˆã‚’æ¤œç´¢ã—ã¦ã€ãƒªã‚¹ãƒˆã®ç•ªå·ã‚’æ‰‹ã«å…¥ã‚Œã‚‹
+				for ( int k = 0; k < PointNum; k++ ) { //‚Â‚È‚ª‚éæ‚Ìƒ|ƒCƒ“ƒg‚ğŒŸõ‚µ‚ÄAƒŠƒXƒg‚Ì”Ô†‚ğè‚É“ü‚ê‚é
 					if ( AiteName.equals( CP.getPitList ().get ( k ).getName () ) ){
 						l = k; 
 						break;
 					}
 				}
-
-				RouteArray[i][l] = (int) Length; //è·é›¢ã‚’ä»£å…¥ï¼ˆãŠã‚‚ã¦
-				RouteArray[l][i] = (int) Length; //è·é›¢ã‚’ä»£å…¥ï¼ˆã†ã‚‰
+				
+				int Costs = getRouteCosts ( CP, 
+						CP.getPitList ().get ( i ).getRoutedataOut ( j ).getTo ().getName (), CP.getPitList ().get ( i ).getName() ); //“¹˜H‚ÌƒRƒXƒgæ“¾
+				
+				RouteArray[i][l] = (int) Length* Costs; //‹——£‚ğ‘ã“üi‚¨‚à‚Ä
+				RouteArray[l][i] = (int) Length/Costs ; //‹——£‚ğ‘ã“üi‚¤‚ç
 			}
-		}	
+		}
+		
+	}
+	
+	private int getRouteCosts (ConnectPoint CP, String nam1, String nam2) { //“¹‚ÌƒRƒXƒg‚ğ”­Œ©
+		int ret = 0;
+		for ( int i=0; i < CP.getRteList().size(); i++ ) {
+			if ( CP.getRteList().get(i).getTo().getName().equals ( nam1 ) && CP.getRteList().get(i).getFrom().getName().equals ( nam2 ) ) {
+				ret = CP.getRteList().get(i).getMoveCosts();
+			}
+		}
+		return ret;
 	}
 }

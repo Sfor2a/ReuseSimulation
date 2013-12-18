@@ -1,20 +1,28 @@
 package housedata;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Housedata {
-	public List < HPAdata > FurnitureList = new ArrayList <> (); //å®¶å…·ãƒªã‚¹ãƒˆ
-	public List < Wishlist > WishList = new ArrayList <> (); //ã»ã—ã„ã‚‚ã®ãƒªã‚¹ãƒˆ
-	private int Coin; //ã‚³ã‚¤ãƒ³
-	private static int HouseIDAdd; //IDåŠ ç®—
+public class Housedata extends HouseElements {
+	public List < HPAdata > FurnitureList = new ArrayList <> (); //‰Æ‹ïƒŠƒXƒg
+	public List < Wishlist > WishList = new ArrayList <> (); //‚Ù‚µ‚¢‚à‚ÌƒŠƒXƒg
+	private int Coin; //ƒRƒCƒ“
+	private static int HouseIDAdd; //ID‰ÁZ
 	
-	//ã‚²ãƒƒã‚¿ãƒ¼ãƒ»ã‚»ãƒƒã‚¿ãƒ¼
+	//ƒQƒbƒ^[EƒZƒbƒ^[
 	public List<HPAdata> getFurnitureList() {
 		return FurnitureList;
 	}
 	public List<Wishlist> getWishList() {
 		return WishList;
+	}
+	public void setWishList ( Wishlist WL ) {
+		WishList.add ( WL );
 	}
 	public int getCoin() {
 		return Coin;
@@ -22,16 +30,145 @@ public class Housedata {
 	public void setCoin(int coin) {
 		Coin = coin;
 	}
-	public static int getHouseIDAdd() {
-		return HouseIDAdd;
-	}	
-	//ã‚²ãƒƒã‚¿ãƒ¼ãƒ»ã‚»ãƒƒã‚¿ãƒ¼çµ‚äº†
+	public void setFurnitureList ( HPAdata HPA ) {
+		FurnitureList.add ( HPA );
+	}
+
+	//ƒQƒbƒ^[EƒZƒbƒ^[I—¹
 	
-	public Housedata () {
-		
+	public Housedata ( String Nam, int Val, ReadFile RF ) {
+		ID = HouseIDAdd++; //ID‰ÁZ‚·‚é‚¾‚¯
+		setName ( Nam ); //‰Æ‚Ì–¼‘OƒZƒbƒg
+		setCoin ( Val ); //‚¢‚­‚ç‚à‚Á‚Ä‚é‚©‚È[
+		reedingfurenitureName ( Nam ); //‰Æ‹ïì‚è‚És‚«‚Ü‚·
+		reedingWishlistName ( Nam ); //Šó–]‰¿ŠiƒŠƒXƒg“Ç‚İ‚Ş
+		RF.setHouseList ( this ); //‚¨‚¤‚¿‚ÌƒŠƒXƒg‚É‚¢‚ê‚é‚æ
+	}
+	private void reedingfurenitureName ( String str1 ) { //‰Æ‹ïì‚é‚æ
+		try {
+			String Housename= "C:\\recycle\\furnituredata\\" + str1 + "_furniture.txt"; 
+			//ƒtƒ@ƒCƒ‹ƒŠ[ƒ_[
+			 File file = new File ( Housename );
+			 BufferedReader br = new BufferedReader ( new FileReader ( file ) );
+			//‚±‚±‚Ü‚Åƒtƒ@ƒCƒ‹ƒŠ[ƒ_[
+			 
+			 String str = "0" ; //“Ç‚İæ‚è—pStringŠÖ” ‚±‚±‚ğƒkƒ‹‚É‚·‚é‚Æ~‚Ü‚éi“–‚½‚è‘O‚¾j
+			 String[] FurnitureAry = new String[4];
+			
+			//“Ç‚İ‚İƒƒ\ƒbƒh
+			do { //EOF‚ğnull‚Æ‚µ‚ÄŒŸoA‚»‚ê‚Ü‚Å‚Í“Ç‚İ‚İ‘±‚¯‚é
+				str = br.readLine (); //ˆês‚ğ“Ç‚İ‚Ş “Ç‚İ‚Ş‚½‚Ñ‚ÉŸ‚Ìif•¶ƒV[ƒPƒ“ƒX‚Å”»’è
+				if (str != null) { //“Ç‚İ‚İs‚ªnull‚Å‚È‚¯‚ê‚Î‚±‚ÌƒV[ƒPƒ“ƒX‚ğÀsAs“ª‚Å”»•Ê‚·‚é
+					if ( str.startsWith ( "Name " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[0] = strAry[1];
+					}
+					else if ( str.startsWith ( "Value " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[1] = strAry[1];
+					}
+					else if ( str.startsWith ( "Minus " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[2] = strAry[1];
+					}
+					else if ( str.startsWith ( "Spec " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[3] = strAry[1];
+					}
+					else if ( str1.startsWith ( "//" ) ); //ƒRƒƒ“ƒg•¶‚ğŒŸo‚·‚é‚Æ‰½‚à‚µ‚È‚¢
+					else System.out.println( "err." );
+					
+					if ( FurnitureAry[0] != null && FurnitureAry[1] != null && FurnitureAry[2] != null ) { //‚Ç‚¿‚ç‚à‘ã“ü‚³‚ê‚½‚Æ‚«‚ÉÀs
+						new HPAdata ( FurnitureAry[0], FurnitureAry[3], Integer.parseInt ( FurnitureAry[1] ), Integer.parseInt ( FurnitureAry[2] ), this ); //‰Æ‹ïì‚Á‚Ä‚­‚ê
+						FurnitureAry [0] = null;
+						FurnitureAry [1] = null; //‚»‚µ‚Ä‚Æ‚à‚Ç‚àƒŠƒZƒbƒg
+						FurnitureAry [2] = null;
+						FurnitureAry [3] = null; //‚»‚µ‚Ä‚Æ‚à‚Ç‚àƒŠƒZƒbƒg
+						}
+				}
+			} while ( str != null );
+			//‚±‚±‚Ü‚Å“Ç‚İ‚İƒƒ\ƒbƒh
+			br.close(); //ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é	
+		} catch ( FileNotFoundException e ) { //—áŠOˆ—
+			System.err.println ( e.getMessage () ); //ƒtƒ@ƒCƒ‹‚È‚µ‚Ì—áŠO	
+			System.exit ( 0 );
+		} catch ( IOException e ) {
+		    System.err.println ( e.getMessage () ); //IOƒGƒ‰[—áŠO
+		    System.exit ( 0 );
+		}
 	}
 	
-	
-	
-	
+	private void reedingWishlistName ( String str1 ) {
+		try {
+			String Housename= "C:\\recycle\\wishlist\\" + str1 + "_wishlist.txt"; 
+			//ƒtƒ@ƒCƒ‹ƒŠ[ƒ_[
+			 File file = new File ( Housename );
+			 BufferedReader br = new BufferedReader ( new FileReader ( file ) );
+			//‚±‚±‚Ü‚Åƒtƒ@ƒCƒ‹ƒŠ[ƒ_[
+			 
+			 String str = "0" ; //“Ç‚İæ‚è—pStringŠÖ” ‚±‚±‚ğƒkƒ‹‚É‚·‚é‚Æ~‚Ü‚éi“–‚½‚è‘O‚¾j
+			 String[] FurnitureAry = new String[4];
+			 int JJ = 0; //ƒXƒCƒbƒ`—p•Ï”
+			
+			//“Ç‚İ‚İƒƒ\ƒbƒh
+			while ( str != null ) { //EOF‚ğnull‚Æ‚µ‚ÄŒŸoA‚»‚ê‚Ü‚Å‚Í“Ç‚İ‚İ‘±‚¯‚é
+				str = br.readLine (); //ˆês‚ğ“Ç‚İ‚Ş “Ç‚İ‚Ş‚½‚Ñ‚ÉŸ‚Ìif•¶ƒV[ƒPƒ“ƒX‚Å”»’è
+				if (str != null) { //“Ç‚İ‚İs‚ªnull‚Å‚È‚¯‚ê‚Î‚±‚ÌƒV[ƒPƒ“ƒX‚ğÀsAs“ª‚Å”»•Ê‚·‚é
+					if ( str.startsWith ( "Name " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[0] = strAry[1];						
+					}
+					else if ( str.startsWith ( "Durability " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[1] = strAry[1];			
+					}
+					else if ( str.startsWith ( "Value " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[2] = strAry[1];			
+					}
+					else if ( str.startsWith ( "Spec " ) ) {
+						String[] strAry = str.split( " ", 2 );
+						FurnitureAry[3] = strAry[1];			
+					}
+					else if ( str1.startsWith ( "//" ) ); //ƒRƒƒ“ƒg•¶‚ğŒŸo‚·‚é‚Æ‰½‚à‚µ‚È‚¢
+					
+					if ( FurnitureAry[0] != null && FurnitureAry[1] != null && FurnitureAry[2] != null ) { //‚Ç‚¿‚ç‚à‘ã“ü‚³‚ê‚½‚Æ‚«‚ÉÀs
+						if ( JJ == 0 ) { //‹­§“I‚É1‰ñ‚ÍWishList‚É‚Ô‚¿‚±‚Ş
+							new Wishlist ( FurnitureAry[0], Integer.parseInt ( FurnitureAry[1] ), Integer.parseInt ( FurnitureAry[2] ), this, FurnitureAry[3] ); //ƒEƒBƒbƒVƒ…ƒŠƒXƒgì‚Á‚Ä‚­‚ê
+							JJ = 1;
+							FurnitureAry [0] = null;
+							FurnitureAry [1] = null;
+							FurnitureAry [2] = null;
+							FurnitureAry [3] = null;//‚»‚µ‚Ä‚Æ‚à‚Ç‚àƒŠƒZƒbƒg
+						}
+						
+						if ( FurnitureAry[0] != null && FurnitureAry[1] != null && FurnitureAry[2] != null && FurnitureAry[3] != null ) { //ˆê“x’Ê‚³‚ê‚½‚à‚Ì‚Íã‚Ìif•¶‚ÅƒŠƒZƒbƒg‚³‚ê‚é‚©‚ç’Ê‚ç‚È‚¢
+							for ( int i = 0; i < WishList.size (); i++ ) { //WishList‘“–‚½‚è
+								if ( !WishList.get ( i ).getName ().equals ( FurnitureAry[0] ) ) { //WishList‚Ì’†‚É–¼‘O‚Ì‚Â‚¢‚½‰Æ‹ï‚ª‚È‚¢‚Æ‚«‚ÉŒÀ‚èAV‚µ‚¢ƒNƒ‰ƒX‚Æ‚µ‚Äƒ[ƒh
+									new Wishlist ( FurnitureAry[0], Integer.parseInt ( FurnitureAry[1] ), Integer.parseInt ( FurnitureAry[2] ), this, FurnitureAry[3] ); //ƒEƒBƒbƒVƒ…ƒŠƒXƒgì‚Á‚Ä‚­‚ê
+								}
+								else if ( WishList.get ( i ).getName ().equals ( FurnitureAry[0] ) ) { //“¯‚¶–¼‘O‚Â‚¢‚½‚Ì‚ª‚ ‚Á‚½‚Æ‚«
+									WishList.get ( i ).getWishValueList ().add ( 
+											new WishValueList ( WishList.get ( i ), Integer.parseInt ( FurnitureAry[1] ), Integer.parseInt ( FurnitureAry[2] ), FurnitureAry[3] ) );
+									WishList.get( i ).getWishValueList ().remove ( WishList.get( 0 ).getWishValueList ().size() - 1 ); //“ñ“xƒZƒbƒg‚³‚ê‚é‚©‚ç1ŒÂÁ‚·i
+								}
+							}
+						}						
+						FurnitureAry [0] = null;
+						FurnitureAry [1] = null;
+						FurnitureAry [2] = null;
+						FurnitureAry [3] = null;//‚»‚µ‚Ä‚Æ‚à‚Ç‚àƒŠƒZƒbƒg
+						}
+				}			
+			}
+			//‚±‚±‚Ü‚Å“Ç‚İ‚İƒƒ\ƒbƒh
+			br.close(); //ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é	
+		} catch ( FileNotFoundException e ) { //—áŠOˆ—
+			System.err.println ( e.getMessage () ); //ƒtƒ@ƒCƒ‹‚È‚µ‚Ì—áŠO	
+			System.exit ( 0 );
+		} catch ( IOException e ) {
+		    System.err.println ( e.getMessage () ); //IOƒGƒ‰[—áŠO
+		    System.exit ( 0 );
+		}
+	}	
 }

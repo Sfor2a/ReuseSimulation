@@ -1,22 +1,15 @@
 package housedata;
 
-public class HPAdata {
-	private String HPAName; //å®¶å…·ã®åå‰ï¼ˆç¨®åˆ¥ï¼Ÿï¼‰
-	private int Durability; //ãã®å®¶å…·ã®è€ä¹…åº¦
-	private int MinusDur; //1ã‚¿ãƒ¼ãƒ ã«ãŠã‘ã‚‹æ¸›å°‘è€ä¹…åº¦ï¼ˆã¾ãšã¯ä½¿ã‚ãªã„æ–¹æ³•ã§ï¼Ÿï¼Ÿï¼Ÿ
-	private int MaxValue; //æ–°å“ã§ã®ä¾¡æ ¼
-	private String Spec; //ã‚¹ãƒšãƒƒã‚¯ã€€å†·è”µåº«ãªã‚‰ãƒªãƒƒãƒˆãƒ«ã€é›»å­ãƒ¬ãƒ³ã‚¸ãªã‚‰ã‚ã£ã¨æ•°ãªã©
-	private int TermValue; //è€ä¹…åº¦æ¸›å°‘å¾Œã®ä¾¡æ ¼ï¼ˆæ¸›å°‘åº¦ã¤ã‹ã‚ã‚“ãªã‚‰ã“ã£ã¡ã‚‚ãª
-	private int Exchangecount; //äº¤æ›å›æ•°ï¼ˆï½’ï½™
-	private static int HPAIDadd; //IDåŠ ç®—
+public class HPAdata extends HouseElements {
+	private int Durability; //‚»‚Ì‰Æ‹ï‚Ì‘Ï‹v“x
+	private int MinusDur; //1ƒ^[ƒ€‚É‚¨‚¯‚éŒ¸­‘Ï‹v“xi‚Ü‚¸‚Íg‚í‚È‚¢•û–@‚ÅHHH
+	private int MaxValue; //V•i‚Å‚Ì‰¿Ši
+	private String Spec; //ƒXƒyƒbƒN@—â‘ ŒÉ‚È‚çƒŠƒbƒgƒ‹A“dqƒŒƒ“ƒW‚È‚ç‚í‚Á‚Æ”‚È‚Ç
+	private int TermValue; //‘Ï‹v“xŒ¸­Œã‚Ì‰¿ŠiiŒ¸­“x‚Â‚©‚í‚ñ‚È‚ç‚±‚Á‚¿‚à‚È
+	private int Exchangecount; //ŒğŠ·‰ñ”i‚’‚™
+	private static int HPAIDadd; //ID‰ÁZ
 	
-	//ã‚²ãƒƒã‚¿ãƒ¼ã‚»ãƒƒã‚¿ãƒ¼
-	public String getHPAName() {
-		return HPAName;
-	}
-	public void setHPAName(String hPAName) {
-		HPAName = hPAName;
-	}
+	//ƒQƒbƒ^[ƒZƒbƒ^[
 	public int getDurability() {
 		return Durability;
 	}
@@ -53,11 +46,18 @@ public class HPAdata {
 	public void setSpec(String spec) {
 		Spec = spec;
 	}
-	//ã“ã“ã¾ã§ã‚²ãƒƒã‚¿ãƒ¼ã‚»ãƒƒã‚¿ãƒ¼
+	//‚±‚±‚Ü‚ÅƒQƒbƒ^[ƒZƒbƒ^[
 	
 
-	public HPAdata() { //å®¶å…·ã‚’ã¤ãã‚‹ã‚ˆ
-		
-	}	
-	
+	public HPAdata(String Nam, String spec, int Val, int MD, Housedata HH) { //‰Æ‹ï‚ğ‚Â‚­‚é‚æ
+		ID = HPAIDadd++;
+		setExchangecount ( 0 );
+		setName ( Nam );
+		setDurability ( 100 );
+		setTermValue ( Val );
+		setMaxValue ( Val );
+		setMinusDur ( MD );
+		setSpec(spec);
+		HH.setFurnitureList ( this );
+	}
 }

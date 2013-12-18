@@ -1,9 +1,15 @@
 package simulation;
 
+import mapdata.ConnectPoint;
+import mapdata.Rangefinder;
+
 public class MinimumAccess {
 	int Length = 0; //‹——£
 	
-	public MinimumAccess ( int[][] RouteArray, int N, int Start, int Goal ) { //Å’Z‚ğ‹‚ß‚é
+	public MinimumAccess ( int[][] RouteArray, int N, int Start, int Goal, ConnectPoint CP ) { //Å’Z‚ğ‹‚ß‚é
+		
+		new Rangefinder (CP, RouteArray); //Å’ZŒo˜H‚ğ’Tõ‚·‚é‚½‚ß‚Ìs—ñì¬
+		
 		boolean Visited[] = new boolean[N]; //Å’Z‹——£‚ªŠm’è‚µ‚½’n“_
 		int Dist[] = new int[N]; //Å‰‚©‚ç‚»‚±‚Ü‚Å‚Ì‹——£
 		int prev[] = new int[N]; //‚Ü‚¦‚É‚¢‚½’n“_
