@@ -36,17 +36,18 @@ public class CostAndRangeRanking {
 		
 		HouseSearch ( HouseNumber, RF, CP );
 		
-		CostAndRangeRankingList HighScore; //ハイスコアな家を用意しておく
+		CostAndRangeRankingList LowScore; //ハイスコアな家を用意しておく
 		for ( int i = 0; i < getCARRList().size(); i++ ) {
 			Housedata House1 = getCARRList().get(i).getHouseC1();
-			HighScore = getCARRList().get(i);
+			LowScore = getCARRList().get(i);
 			for ( int j = 0; j< getCARRList().size(); j++ ) {
 				Housedata House2 = getCARRList().get(j).getHouseC1();
-				if ( House2.getName().equals( House1.getName() ) && HighScore.getScore() < getCARRList().get(j).getScore() ) { //同じ名前の家の時に、スコアの高い家がみつかったら
-					HighScore = getCARRList().get(j); //ハイスコアのところを更新
+				if ( House2.getName().equals( House1.getName() ) && getCARRList().get(j).getScore() < LowScore.getScore() ) { //同じ名前の家の時に、スコアの高い家がみつかったら（つまり一番答えが低いｗ
+					LowScore = getCARRList().get(j); //ハイスコアのところを更新
 				}
 			}
-			new Exchange ( HighScore.getHouseC1(), HighScore.getHouseC2(), HighScore.getHPA() ); //ハイスコアなもので交換するよ
+			if ( LowScore.getHPA() != null ) new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
+			else System.out.println("交換なし"); ;
 		}
 		new MinusDur ( RF );
 	}
