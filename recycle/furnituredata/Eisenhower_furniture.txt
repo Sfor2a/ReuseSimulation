@@ -1,12 +1,4 @@
-Name 電子レンジ
-Value 4970
+Name 冷蔵庫
+Value 205009
+Spec 500
 Minus 4
-Name テレビ
-Value 70000
-Minus 3
-Name オーブントースタ
-Value 5400
-Minus 2
-Name カメラ
-Value 54000
-Minus 7

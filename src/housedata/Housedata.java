@@ -40,13 +40,13 @@ public class Housedata extends HouseElements {
 		ID = HouseIDAdd++; //ID加算するだけ
 		setName ( Nam ); //家の名前セット
 		setCoin ( Val ); //いくらもってるかなー
-		reedingfurenitureName ( Nam ); //家具作りに行きます
+		reedingHPAName ( Nam ); //家具作りに行きます
 		reedingWishlistName ( Nam ); //希望価格リスト読み込む
 		RF.setHouseList ( this ); //おうちのリストにいれるよ
 	}
-	private void reedingfurenitureName ( String str1 ) { //家具作るよ
+	private void reedingHPAName ( String str1 ) { //家具作るよ
 		try {
-			String Housename= "C:\\recycle\\furnituredata\\" + str1 + "_furniture.txt"; 
+			String Housename= ".\\recycle\\furnituredata\\" + str1 + "_furniture.txt"; 
 			//ファイルリーダー
 			 File file = new File ( Housename );
 			 BufferedReader br = new BufferedReader ( new FileReader ( file ) );
