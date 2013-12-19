@@ -5,7 +5,7 @@ import housedata.HPAdata;
 import housedata.Housedata;
 
 public class ExchangeHPASearch {
-	private int Cost = ( Integer.MAX_VALUE ) / 2;
+	private int Cost = ( Integer.MAX_VALUE ) / 4;
 	private HPAdata HPA1;
 	
 	public ExchangeHPASearch ( Housedata A1, Housedata A2 ) {
