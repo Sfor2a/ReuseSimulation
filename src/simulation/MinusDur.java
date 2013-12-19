@@ -17,7 +17,6 @@ public class MinusDur {
 					int NowValue = (int) (onepValue * NowDur); //耐久地を書けて値段にする
 					RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).setDurability( NowDur );
 					RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).setTermValue( NowValue );
-					System.out.println( RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getDurability() );
 					if ( NowDur <= 0 ) System.out.println( RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getName () + "が耐久度0になりました" );
 				}
 			}
