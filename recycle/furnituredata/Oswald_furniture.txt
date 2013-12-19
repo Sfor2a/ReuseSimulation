@@ -1,0 +1,12 @@
+Name 電子レンジ
+Value 138800
+Minus 4
+Name テレビ
+Value 620000
+Minus 3
+Name トースタ
+Value 4300
+Minus 2
+Name カメラ
+Value 24000
+Minus 7

@@ -1,0 +1,2 @@
+Name Smith
+Coin 20000000

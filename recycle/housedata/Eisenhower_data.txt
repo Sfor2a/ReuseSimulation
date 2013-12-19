@@ -1,0 +1,2 @@
+Name Eisenhower
+Coin 20000000

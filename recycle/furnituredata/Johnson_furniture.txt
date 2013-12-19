@@ -1,0 +1,12 @@
+Name 電子レンジ
+Value 80000
+Minus 4
+Name テレビ
+Value 35000
+Minus 3
+Name トースター
+Value 4000
+Minus 2
+Name カメラ
+Value 230000
+Minus 7

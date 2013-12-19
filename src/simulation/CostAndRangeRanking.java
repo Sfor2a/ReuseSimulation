@@ -28,11 +28,11 @@ public class CostAndRangeRanking {
 	public CostAndRangeRanking () {
 		
 		ReadFile RF = new ReadFile();
-		RF.CreatefromFile( "C:\\recycle\\Houselist.txt" ); //家具リストの作成
+		RF.CreatefromFile( ".\\recycle\\Houselist.txt" ); //家具リストの作成
 		
 		int HouseNumber = RF.getHouseList ().size (); //家の数		
 		ConnectPoint CP = new ConnectPoint(); //地図モデル作成
-		CP.ConnectfromFile("D:\\Users\\Sforza\\Dropbox\\プログラム\\Mapdata2.txt"); //地図モデル作成
+		CP.ConnectfromFile(".\\recycle\\Mapdata2.txt"); //地図モデル作成
 		
 		HouseSearch ( HouseNumber, RF, CP );
 		

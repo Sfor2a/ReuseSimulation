@@ -1,0 +1,15 @@
+Name 電子レンジ
+Value 60000
+Minus 4
+Name テレビ
+Value 150000
+Minus 3
+Name トースタ
+Value 3500
+Minus 2
+Name タンス
+Value 1000000
+Minus 1
+Name カメラ
+Value 40000
+Minus 7

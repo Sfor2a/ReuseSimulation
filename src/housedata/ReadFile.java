@@ -59,7 +59,7 @@ public class ReadFile {
 	private void reedingHouseName ( String str, int countLine ) { //家の名前を読み込んだよ　家をつくるよ
 		try {
 			String StAry[] = str.split ( " ", 2 ); //"Housename "を除去
-			String Housename= "C:\\recycle\\housedata\\" + StAry[1] + "_data.txt";
+			String Housename= ".\\recycle\\housedata\\" + StAry[1] + "_data.txt";
 			//ファイルリーダー
 			 File file = new File ( Housename );
 			 BufferedReader br = new BufferedReader ( new FileReader ( file ) );
