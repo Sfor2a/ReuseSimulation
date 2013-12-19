@@ -6,6 +6,7 @@ public class Main {
 		CostAndRangeRanking CRR = new CostAndRangeRanking ();
 		for ( int i = 0; i<110; i++ ) {
 			CRR.CARRCreate();
+			
 		}
 	}
 

@@ -56,6 +56,8 @@ public class CostAndRangeRanking {
 			if ( LowScore.getHPA() != null ) new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
 		}
 		MDD.Minus( RF );
+		WriteOutRank WOR = new WriteOutRank();
+		WOR.WriteOut ( this );
 	}
 	
 	private void HouseSearch ( int HouseNumber, ReadFile RF, ConnectPoint CP ) { //家の総当たりメソッド
