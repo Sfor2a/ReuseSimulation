@@ -34,9 +34,9 @@ public class MinimumAccess {
 			node = prev[node];
 		}
 		for ( int i = track.length () - 1; i >= 0; i--) str += " => " + track.charAt ( i );
-		if ( node == Start ) System.out.println ( str );
-		else System.out.println ( "ルートなし" );
-		System.out.println ( "距離"+ Dist[Goal] );
+		//if ( node == Start ) System.out.println ( str );
+		//else System.out.println ( "ルートなし" );
+		//System.out.println ( "距離"+ Dist[Goal] );
 		Length = Dist[Goal]; //距離参照用
 	}
 	
