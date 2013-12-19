@@ -36,7 +36,7 @@ public class CostAndRangeRanking {
 		RF.CreatefromFile( ".\\recycle\\Houselist.txt" ); //家具リストの作成
 		HouseNumber = RF.getHouseList ().size (); //家の数
 		CP = new ConnectPoint(); //地図モデル作成
-		CP.ConnectfromFile(".\\recycle\\Mapdata2.txt"); //地図モデル作成
+		CP.ConnectfromFile(".\\recycle\\Maptokyo.txt"); //地図モデル作成
 		
 	}
 	
