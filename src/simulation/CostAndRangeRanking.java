@@ -11,6 +11,7 @@ import mapdata.ConnectPoint;
 public class CostAndRangeRanking {
 	private List < CostAndRangeRankingList > CARRList = new ArrayList <> ();
 	private HPAdata HPA2;
+	private MinusDur MDD;
 	//ゲッター・セッター
 	public List<CostAndRangeRankingList> getCARRList() {
 		return CARRList;
@@ -26,7 +27,10 @@ public class CostAndRangeRanking {
 	}
 
 	public CostAndRangeRanking () {
-		
+		MDD = new MinusDur();
+	}
+	
+	public void CARRCreate () {
 		ReadFile RF = new ReadFile();
 		RF.CreatefromFile( ".\\recycle\\Houselist.txt" ); //家具リストの作成
 		
@@ -49,7 +53,7 @@ public class CostAndRangeRanking {
 			if ( LowScore.getHPA() != null ) new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
 			else System.out.println("交換なし"); ;
 		}
-		new MinusDur ( RF );
+		MDD.Minus( RF );
 	}
 	
 	private void HouseSearch ( int HouseNumber, ReadFile RF, ConnectPoint CP ) { //家の総当たりメソッド
