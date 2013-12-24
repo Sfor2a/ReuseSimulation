@@ -25,6 +25,7 @@ public class MinimumAccess {
 		MinimumRouteSearch ( Visited, RouteArray, Dist, prev, pos, N, nodes ); //最小経路探索
 		
 		//イカコンストラクタ終了まで表示のコマンド、ぶっちゃけ一部のぞいてもおｋ　つまり経路の表示　距離自体はDistに格納されてるので問題なし
+		@SuppressWarnings("unused")
 		String str = Start + "から" + Goal + "までの最短ルートは";
 		int node = prev[Goal];
 		String track = Integer.toString ( Goal );
