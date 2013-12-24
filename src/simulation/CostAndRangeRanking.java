@@ -11,7 +11,6 @@ import mapdata.ConnectPoint;
 public class CostAndRangeRanking {
 	private List < CostAndRangeRankingList > CARRList = new ArrayList <> ();
 	private HPAdata HPA2;
-	private MinusDur MDD;
 	private ReadFile RF;
 	private int HouseNumber;
 	private ConnectPoint CP;
