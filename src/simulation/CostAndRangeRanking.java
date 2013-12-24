@@ -31,7 +31,7 @@ public class CostAndRangeRanking {
 	}
 
 	public CostAndRangeRanking () {
-		MDD = new MinusDur();
+		//MDD = new MinusDur();
 		RF = new ReadFile();
 		RF.CreatefromFile( ".\\recycle\\Houselist.txt" ); //家具リストの作成
 		HouseNumber = RF.getHouseList ().size (); //家の数
@@ -55,7 +55,8 @@ public class CostAndRangeRanking {
 			}
 			if ( LowScore.getHPA() != null ) new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
 		}
-		MDD.Minus( RF );
+		MinusDur MDD = new MinusDur();
+		MDD.Minus(RF);
 		WriteOutRank WOR = new WriteOutRank();
 		WOR.WriteOut ( this );
 	}
