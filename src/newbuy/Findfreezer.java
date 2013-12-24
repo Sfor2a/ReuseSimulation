@@ -57,7 +57,7 @@ public class Findfreezer {
 		for( int i = 0; i < CFL.size(); i++ ) {
 			if ( CFL.get(i).getCost() > ( int ) ( cost * 0.9 ) && CFL.get(i).getCost() < ( int ) ( cost * 1.1 ) ){
 				setCFFL ( CFL.get(i) );
-				//System.out.println( "コスト上限"+ ( cost * 1.1 ) +"コスト下限"+ ( cost * 0.9 ) +"選んだコスト"+CFL.get(i).getCost() );
+				System.out.println( "コスト上限"+ ( cost * 1.1 ) +"コスト下限"+ ( cost * 0.9 ) +"選んだコスト"+CFL.get(i).getCost() );
 			}
 		}
 	}
@@ -66,7 +66,6 @@ public class Findfreezer {
 		freezer CFL = null;
 		List < freezer > LFL = getCFFL();
 		Random rnd = new Random();
-		System.out.println(LFL.size());
 		int i = rnd.nextInt( LFL.size() );
 		CFL = LFL.get(i);		
 		return CFL;
