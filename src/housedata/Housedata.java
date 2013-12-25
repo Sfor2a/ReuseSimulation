@@ -100,7 +100,7 @@ public class Housedata extends HouseElements {
 	
 	private void reedingWishlistName ( String str1 ) {
 		try {
-			String Housename= "C:\\recycle\\wishlist\\" + str1 + "_wishlist.txt"; 
+			String Housename= ".\\recycle\\wishlist\\" + str1 + "_wishlist.txt"; 
 			//ファイルリーダー
 			 File file = new File ( Housename );
 			 BufferedReader br = new BufferedReader ( new FileReader ( file ) );

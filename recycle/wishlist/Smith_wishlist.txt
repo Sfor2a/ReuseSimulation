@@ -1,9 +1,9 @@
-Name 電子レンジ
+Name 冷蔵庫
 Durability 90
-Value 172494
-Name 電子レンジ
-Durability 40
-Value 199480
-Name 電子レンジ
+Value 302400
+Name 冷蔵庫
+Durability 60
+Value 302400
+Name 冷蔵庫
 Durability 10
-Value 21950
+Value 302400

@@ -1,9 +1,9 @@
 Name —â‘ ŒÉ
 Durability 90
-Value 190964
+Value 53500
 Name —â‘ ŒÉ
-Durability 40
-Value 112510
+Durability 60
+Value 53500
 Name —â‘ ŒÉ
 Durability 10
-Value 17328
+Value 53500

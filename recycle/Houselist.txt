@@ -11,7 +11,7 @@ HouseName Taft
 HouseName Hoover
 HouseName Truman
 HouseName Ford
-NouseName Carter
+HouseName Carter
 HouseName Clinton
 HouseName Obama
 HouseName Coolidge

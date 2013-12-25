@@ -1,0 +1,9 @@
+Name —â‘ ŒÉ
+Durability 90
+Value 268000
+Name —â‘ ŒÉ
+Durability 60
+Value 268000
+Name —â‘ ŒÉ
+Durability 10
+Value 268000
