@@ -20,7 +20,7 @@ public class MinusDur {
 					RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).setDurability( NowDur );
 					RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).setTermValue( NowValue );
 					if ( NowDur <= 0 ) {
-						System.out.println( RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getName () + "‚ª‘Ï‹v“x0‚É‚È‚è‚Ü‚µ‚½" );
+						System.out.println( RF.getHouseList ().get ( i ).getName() + "‚Ì" + RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getName () + "‚ª‘Ï‹v“x0‚É‚È‚è‚Ü‚µ‚½" );
 						System.out.println( "V‹K‚É—â‘ ŒÉ‚ðw“ü‚µ‚Ü‚·" );
 						new buybuy ( RF, i, j );
 					}

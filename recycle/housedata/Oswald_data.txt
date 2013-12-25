@@ -1,2 +1,2 @@
 Name Oswald
-Coin 200000000
+Coin 8000000

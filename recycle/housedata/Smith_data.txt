@@ -1,2 +1,2 @@
 Name Smith
-Coin 20000000
+Coin 8000000
