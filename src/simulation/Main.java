@@ -9,7 +9,7 @@ public class Main {
 			CRR.CARRCreate();
 			System.out.println(i+"ƒ^[ƒ“–Ú");
 			WriteOutData WOR = new WriteOutData();
-			WOR.WriteOut ( CRR );
+			WOR.WriteOut ( CRR, i );
 		}
 	}
 

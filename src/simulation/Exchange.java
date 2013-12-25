@@ -19,7 +19,7 @@ public class Exchange {
 			if ( HPA.getName().equals( A1.getFurnitureList().get( i ).getName() ) ) Count += 1;
 		}
 									
-		if ( k != Integer.MAX_VALUE && !( Count >= 3 ) ) { //冷蔵庫が存在しない場合しない、存在しても、冷蔵庫を２個以上もってる家なら交換から外れる
+		if ( k != Integer.MAX_VALUE && !( Count >= 2 ) ) { //冷蔵庫が存在しない場合しない、存在しても、冷蔵庫を２個以上もってる家なら交換から外れる
 			int str6 = A2.getFurnitureList ().get ( k ).getTermValue();
 			F1.setExchangecount ( F1.getExchangecount() + 1 );//交換回数加算
 			A2.getFurnitureList().remove ( k ); //その家具は消える

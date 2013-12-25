@@ -1,7 +1,10 @@
 package simulation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+
 
 import housedata.HPAdata;
 import housedata.Housedata;
@@ -28,6 +31,9 @@ public class CostAndRangeRanking {
 	public void setHPA2 ( HPAdata HPAAA ) {
 		HPA2 = HPAAA;
 	}
+	public ReadFile getRF () {
+		return RF;
+	}
 
 	public CostAndRangeRanking () {
 		//MDD = new MinusDur();
@@ -39,10 +45,14 @@ public class CostAndRangeRanking {
 		
 	}
 	
+	
+	@SuppressWarnings("unchecked")
 	public void CARRCreate () {		
 		HouseSearch ( HouseNumber, RF, CP );
 		
 		CostAndRangeRankingList LowScore; //ハイスコアな家を用意しておく
+		List < CostAndRangeRankingList > Narabikae = getCARRList();
+		Collections.sort( Narabikae, new RankingComparator() ); //スコアの低い者が上にくる（つまりハイスコア
 		for ( int i = 0; i < getCARRList().size(); i++ ) {
 			Housedata House1 = getCARRList().get(i).getHouseC1();
 			LowScore = getCARRList().get(i);
@@ -57,7 +67,7 @@ public class CostAndRangeRanking {
 		MinusDur MDD = new MinusDur();
 		MDD.Minus(RF);
 	}
-	
+		
 	private void HouseSearch ( int HouseNumber, ReadFile RF, ConnectPoint CP ) { //家の総当たりメソッド
 		for ( int i = 0; i< HouseNumber; i++ ) { //交換商品の検索
 			for ( int j = 0; j < HouseNumber; j++ ) {
@@ -161,6 +171,11 @@ class CostAndRangeRankingList {
 		setHPA( HPA3 );
 		CARR.setCARRList( this );
 	}
-	
-	
+}
+
+@SuppressWarnings("rawtypes")
+class RankingComparator implements java.util.Comparator {
+	public int compare ( Object s, Object t ) {
+		return ( ( CostAndRangeRankingList ) s ).getScore() - ( ( CostAndRangeRankingList ) t ).getScore();
+	}
 }
