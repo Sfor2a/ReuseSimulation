@@ -53,9 +53,16 @@ Point, 荻窪交差点, -140, 20, 2
 Point, 都庁交差点, -100, 0, 2
 Point, 北千住交差点, 50, 70, 2
 Point, Johnson, -90, 70, 1
-Point, Smith, 80, -10, 1
 Point, Eisenhower, -80, -60, 1
-Point, Oswald, 90, 30, 1
+Point, Kennedy, 0, -10, 1
+Point, Bush, -10, -10, 1
+Point, Roosevelt, -20, -10, 1
+Point, Reagan, -10, 0, 1
+Point, Nixson, -40, 0, 1
+Point, Taft, -20, -30, 1
+Point, Hoover, -10, -30, 1
+Point, Truman, 0, 30, 1
+Point, Ford, -20, -40, 1
 Route 三田交差点,泉岳寺交差点 1
 Route 三田交差点,大門交差点 1
 Route 大門交差点,月島交差点 2
@@ -72,7 +79,8 @@ Route 日本橋交差点,大手交差点 1
 Route 三田交差点,日比谷交差点 1
 Route 三田交差点,白高交差点 1
 Route 東銀座交差点,大門交差点 1
-Route 大門交差点,麻布交差点 1
+Route 大門交差点,Ford 1
+Route Ford,麻布交差点 1
 Route 人形町交差点,茅場町交差点 1
 Route 三越前交差点,日本橋交差点 1
 Route 三越前交差点,上野交差点 1
@@ -95,21 +103,22 @@ Route 岩本町交差点,淡路交差点 1
 Route 岩本町交差点,上野交差点 1
 Route 蔵前交差点,上野交差点 1
 Route 上野交差点,浅草交差点 2
-Route 大手交差点,銀座交差点 1
 Route 大手交差点,淡路交差点 1
-Route 大手交差点,九段下交差点 2
+Route 大手交差点,Reagan 2
+Route Reagan,九段下交差点 2
 Route 九段下交差点,神保町交差点 1
 Route 大手交差点,神保町交差点 1
 Route 神保町交差点,淡路交差点 1
 Route 淡路交差点,北千住交差点 4
-Route 淡路交差点,本郷交差点 1
+Route 淡路交差点,Truman 1
+Route Truman,本郷交差点 1
 Route 北千住交差点,押上交差点 1
 Route 北千住交差点,上野交差点 1
 Route 上野交差点,本郷交差点 2
-Route 大手交差点,日比谷交差点 1
 Route 日比谷交差点,銀座交差点 1
-Route 赤坂交差点,日比谷交差点 2
-Route 溜山交差点,銀座交差点 2
+Route 溜山交差点,Taft 2
+Route Hoover,銀座交差点 2
+Route Taft,Hoover, 2
 Route 溜山交差点,麻布交差点 1
 Route 溜山交差点,霞ヶ関交差点 1
 Route 日比谷交差点,霞ヶ関交差点 1
@@ -133,7 +142,8 @@ Route 東新宿交差点,新宿交差点 1
 Route 東新宿交差点,新三交差点 1
 Route 赤坂交差点,四谷交差点 2
 Route 赤坂交差点,九段下交差点 2
-Route 市ヶ谷交差点,赤坂交差点 1
+Route 市ヶ谷交差点,Nixson 1
+Route Nixson,赤坂交差点 1
 Route 市ヶ谷交差点,新三交差点 1
 Route 東新宿交差点,飯田橋交差点 1
 Route 飯田橋交差点,市ヶ谷交差点 1
@@ -157,7 +167,11 @@ Route 小竹交差点,和光交差点 1
 Route 小竹交差点,練馬交差点 1
 Route 練馬交差点,中野交差点 1
 Route 荻窪交差点,中野交差点 1
-Route Oswald,住吉交差点 1
 Route Eisenhower,泉岳寺交差点 1
 Route Johnson,後楽園交差点 4
-Route Smith,門仲交差点 1
+Route Kennedy,大手交差点 1
+Route Kennedy,銀座交差点 1
+Route Bush,大手交差点 1
+Route Bush,日比谷交差点 1
+Route Roosevelt,赤坂交差点 2
+Route Roosevelt,日比谷交差点 2

@@ -1,9 +1,12 @@
 Name —â‘ ŒÉ
 Durability 90
-Value 298000
+Value 302400
+Spec 670
 Name —â‘ ŒÉ
 Durability 60
-Value 298000
+Value 302400
+Spec 670
 Name —â‘ ŒÉ
 Durability 10
-Value 298000
+Value 302400
+Spec 670

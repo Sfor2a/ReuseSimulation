@@ -1,7 +1,5 @@
 HouseName Johnson
-HouseName Smith
 HouseName Eisenhower
-HouseName Oswald
 HouseName Kennedy
 HouseName Bush
 HouseName Roosevelt

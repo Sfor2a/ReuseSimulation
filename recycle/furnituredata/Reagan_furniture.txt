@@ -1,4 +1,4 @@
 Name —â‘ ŒÉ
-Value 92200
-Spec 302
+Value 69800
+Spec 445
 Minus 4

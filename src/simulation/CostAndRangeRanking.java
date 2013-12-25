@@ -56,8 +56,6 @@ public class CostAndRangeRanking {
 		}
 		MinusDur MDD = new MinusDur();
 		MDD.Minus(RF);
-		WriteOutRank WOR = new WriteOutRank();
-		WOR.WriteOut ( this );
 	}
 	
 	private void HouseSearch ( int HouseNumber, ReadFile RF, ConnectPoint CP ) { //‰Æ‚Ì‘“–‚½‚èƒƒ\ƒbƒh

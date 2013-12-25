@@ -7,6 +7,9 @@ public class Main {
 		
 		for ( int i = 0; i<110; i++ ) {
 			CRR.CARRCreate();
+			System.out.println(i+"ƒ^[ƒ“–Ú");
+			WriteOutData WOR = new WriteOutData();
+			WOR.WriteOut ( CRR );
 		}
 	}
 

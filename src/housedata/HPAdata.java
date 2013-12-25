@@ -60,4 +60,12 @@ public class HPAdata extends HouseElements {
 		setSpec(spec);
 		HH.setFurnitureList ( this );
 	}
+	
+	public boolean equals(Object obj){
+	    HPAdata t = ( HPAdata )obj;
+	    String ts = t.Name;
+
+		if( Name.equals ( ts ) ) return true;
+		else return false;
+	}
 }

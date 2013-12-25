@@ -132,7 +132,7 @@ public class Housedata extends HouseElements {
 					}
 					else if ( str1.startsWith ( "//" ) ); //コメント文を検出すると何もしない
 					
-					if ( FurnitureAry[0] != null && FurnitureAry[1] != null && FurnitureAry[2] != null ) { //どちらも代入されたときに実行
+					if ( FurnitureAry[0] != null && FurnitureAry[1] != null && FurnitureAry[2] != null && FurnitureAry[3] != null ) { //どちらも代入されたときに実行
 						if ( JJ == 0 ) { //強制的に1回はWishListにぶちこむ
 							new Wishlist ( FurnitureAry[0], Integer.parseInt ( FurnitureAry[1] ), Integer.parseInt ( FurnitureAry[2] ), this, FurnitureAry[3] ); //ウィッシュリスト作ってくれ
 							JJ = 1;

@@ -1,2 +1,0 @@
-Name Oswald
-Coin 8000000
