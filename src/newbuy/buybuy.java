@@ -11,7 +11,6 @@ public class buybuy {
 		FR.findfreezerspec( Integer.parseInt( RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getSpec() ), FRF );
 		FR.findfreezercost( RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getMaxValue() );
 		freezer NF = FR.FindFreezerLast();
-		HPAdata HH = new HPAdata( "—â‘ ŒÉ", Integer.toString( NF.getSpec() ), NF.getCost(), RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getMinusDur(), RF.getHouseList ().get ( i ));
-		RF.getHouseList ().get ( i ).setFurnitureList ( HH );
+		new HPAdata( "—â‘ ŒÉ", Integer.toString( NF.getSpec() ), NF.getCost(), RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getMinusDur(), RF.getHouseList ().get ( i ));
 	}
 }

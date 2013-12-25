@@ -6,8 +6,8 @@ public class Main {
 		CostAndRangeRanking CRR = new CostAndRangeRanking ();
 		
 		for ( int i = 0; i<110; i++ ) {
-			CRR.CARRCreate();
 			System.out.println(i+"ƒ^[ƒ“–Ú");
+			CRR.CARRCreate();
 			WriteOutData WOR = new WriteOutData();
 			WOR.WriteOut ( CRR, i );
 		}
