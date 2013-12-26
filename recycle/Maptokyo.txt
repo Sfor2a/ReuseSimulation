@@ -73,9 +73,9 @@ Point, Jefferson, 30, 20, 1
 Point, Madison, -60, -10, 1
 Point, Monroe, -30, -30, 1
 Point, Jackson, -40, 0, 1
-Point, Polk, -60, 50, 1 
+Point, Polk, -60, 50, 1
 Point, Tyler, -50, 50, 1
-Poiny, Fillmore, -40, -60, 1
+Point, Fillmore, -40, -60, 1
 Point, Buren, -60, -20, 1
 Point, Taylor, -110, 10, 1
 Point, Pierce, 30, 60, 1
@@ -86,15 +86,16 @@ Point, Hayes, 0, 50, 1
 Point, Garfield, -60, 0, 1
 Point, Arthur, -50, -40, 1
 Point, Cleveland, 40, 30, 1
-Point, Harrison
-Point, Mckinley
-Point, Willson
-Point, Harding
+Point, Harrison, -100, 20, 1
+Point, Mckinley, 20, -20, 1
+Point, Willson, 60, 40, 1
+Point, Harding, 10, 70, 1
 Route 三田交差点,泉岳寺交差点 1
 Route 三田交差点,大門交差点 1
 Route 大門交差点,月島交差点 2
 Route 門仲交差点,月島交差点 1
-Route 月島交差点,日比谷交差点 2
+Route Mckinley,月島交差点 2
+Route Mckinley,日比谷交差点 2
 Route 門仲交差点,茅場町交差点 1
 Route 茅場町交差点,日本橋交差点 1
 Route 茅場町交差点,東銀座交差点 1
@@ -129,14 +130,15 @@ Route 蔵前交差点,Coolidge 2
 Route Coolidge,東日本橋交差点 2
 Route 蔵前交差点,Cleveland 2
 Route Cleveland,森下交差点 2
-Route 押上交差点,住吉交差点 1
+Route 押上交差点,Willson 1
+Route Willson,住吉交差点 1
 Route 浅草交差点,押上交差点 1
 Route 浅草交差点,蔵前交差点 1
 Route 岩本町交差点,淡路交差点 1
 Route 岩本町交差点,上野交差点 1
 Route 蔵前交差点,上野交差点 1
-Route 上野交差点,Carter, 2
-Route Carter, Pierce 2
+Route 上野交差点,Carter 2
+Route Carter,Pierce 2
 Route Pierce,浅草交差点 2
 Route 大手交差点,淡路交差点 1
 Route 大手交差点,Reagan 2
@@ -144,7 +146,8 @@ Route Reagan,九段下交差点 2
 Route 九段下交差点,神保町交差点 1
 Route 大手交差点,神保町交差点 1
 Route 神保町交差点,淡路交差点 1
-Route 淡路交差点,北千住交差点 4
+Route 淡路交差点,Harding 4
+Route Harding,北千住交差点 4
 Route 淡路交差点,Truman 1
 Route Truman,本郷交差点 1
 Route 北千住交差点,押上交差点 1
@@ -172,7 +175,7 @@ Route 青山交差点,六本木交差点 1
 Route 青山交差点,Buren 1
 Route Buren,表参道交差点 1
 Route 赤坂交差点,青山交差点 1
-Route 青山交差点,Mdison 1
+Route 青山交差点,Madison 1
 Route Madison,新宿交差点 1
 Route 原宿交差点,新三交差点 1
 Route 新三交差点,新宿交差点 1
@@ -202,7 +205,8 @@ Route 池袋交差点,東新宿交差点 1
 Route 池袋交差点,飯田橋交差点 1
 Route 中野交差点,Clinton 1
 Route Clinton,飯田橋交差点 1
-Route 中野交差点,新宿交差点 1
+Route 中野交差点,Harrison 1
+Route Harrison,新宿交差点 1
 Route 中野交差点,Taylor 1
 Route Taylor,都庁交差点 1
 Route 四谷交差点,Garfield 1
