@@ -62,6 +62,9 @@ public class CostAndRangeRanking {
 					LowScore = getCARRList().get(j); //ハイスコアのところを更新
 				}
 			}
+			//家具が０の場合強制的にスコアを０にすることで優先交換を実装
+			//同時にMinusDurで家具が２つになっていたら、かたほうを現在価格の0,1割に設定しておく
+			
 			if ( LowScore.getHPA() != null ) new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
 		}
 		MinusDur MDD = new MinusDur();
