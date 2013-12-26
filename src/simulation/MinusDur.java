@@ -34,18 +34,14 @@ public class MinusDur {
 				MinusDurability ( TaisyouHPA ); //耐久度減産メソッド
 				NewHPABuy ( TaisyouHPA, RF, i, j, iFurnitureList, TAISYOUHOUSE ); //耐久度0の家具をさがして廃棄して、その分を購入(TaisyouHPAが該当かどうか調べる
 				int DA = doubleHPASearch ( TaisyouHPA, TAISYOUHOUSE, iFurnitureList ); //ダブり検索
-				FireSale ( DA, TAISYOUHOUSE, iFurnitureList, TaisyouHPA ); //冷蔵庫がダブってれば耐久度の低い方を安売り設定する
-				doubleHPAList.clear(); //作業終了後ダブリリストはクリアする
-				
-				//確認用
-				System.out.println(RF.getHouseList ().get ( i ).getFurnitureList ().get ( j ).getTermValue());
+				FireSale ( DA, TAISYOUHOUSE, iFurnitureList, TaisyouHPA, i, j, RF ); //冷蔵庫がダブってれば耐久度の低い方を安売り設定する
+				doubleHPAList.clear(); //作業終了後ダブリリストはクリアする		
 			}
 		}
 	}
 
-	private void FireSale( int j, Housedata tAISYOUHOUSE, List<HPAdata> iFurnitureList, HPAdata taisyouHPA ) { //耐久度の低い方を投げ売りします
+	private void FireSale ( int j, Housedata tAISYOUHOUSE, List<HPAdata> iFurnitureList, HPAdata taisyouHPA, int k, int l, ReadFile RF ) { //耐久度の低い方を投げ売りします
 		if ( j >= 2 ) { //ダブってるときのみ動くメソッド
-			System.out.println("ダブりあったから投げうるぞ");
 			int Dur = Integer.MAX_VALUE; //耐久度検索用のキー
 			int II = Integer.MAX_VALUE; //記憶用のi
 			for ( int i = 0; i < getdoubleList().size(); i++ ) {
@@ -57,9 +53,9 @@ public class MinusDur {
 			int ID = getdoubleList().get(II).getID(); //そのたいきゅうどの低い方のＩＤをもってくる
 			for ( int i = 0; i < iFurnitureList.size(); i++ ) {
 				if ( ID == iFurnitureList.get(i).getID() ) { //おなじＩＤの家電を発見後その家電は投げ売りに処す
+					//System.out.println(Dur+ " + " + II + " + " + j + " + " + ID + " " + tAISYOUHOUSE.getName() );
 					int Val = (int) (iFurnitureList.get(i).getTermValue() * 0.3); //1割で投げうる
-					iFurnitureList.get(i).setTermValue(Val);
-					System.out.println( "投げ売りうごいたぞよ"+Val);
+					RF.getHouseList ().get ( k ).getFurnitureList ().get ( l ).setTermValue( Val );
 				}
 			}
 		}
@@ -74,7 +70,6 @@ public class MinusDur {
 			if ( SearchKey.equals ( SearchName ) ) { //対象家具の名前と同じものがあれば
 				j += 1; //加算する（つまりtaisyouHPAと同じモノハかならずあるから１以上にはなる
 				setdoubleList ( iFurnitureList.get(i) ); //ダブってればダブりリストに追加
-				System.out.println("ダブり発見" + j);
 			}
 		}
 		return j;
