@@ -48,10 +48,27 @@ public class CostAndRangeRanking {
 	
 	@SuppressWarnings("unchecked")
 	public void CARRCreate () {		
-		HouseSearch ( HouseNumber, RF, CP );
-		
+		HouseSearchNoneandDouble ( HouseNumber, RF, CP ); //さきにダブりとなしの家の交換を実施
 		CostAndRangeRankingList LowScore; //ハイスコアな家を用意しておく
 		List < CostAndRangeRankingList > Narabikae = getCARRList();
+		Collections.sort( Narabikae, new RankingComparator() ); //スコアの低い者が上にくる（つまりハイスコア
+		for ( int i = 0; i < getCARRList().size(); i++ ) {
+			Housedata House1 = getCARRList().get(i).getHouseC1();
+			LowScore = getCARRList().get(i);
+			for ( int j = 0; j< getCARRList().size(); j++ ) {
+				Housedata House2 = getCARRList().get(j).getHouseC1();
+				if ( House2.getName().equals( House1.getName() ) && getCARRList().get(j).getScore() < LowScore.getScore() ) { //同じ名前の家の時に、スコアの高い家がみつかったら（つまり一番答えが低いｗ
+					LowScore = getCARRList().get(j); //ハイスコアのところを更新
+				}
+			}
+			if ( LowScore.getHPA() != null ) {
+				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
+			}
+		}
+		
+		
+		HouseSearch ( HouseNumber, RF, CP ); //次に通常同志で実施
+		Narabikae = getCARRList();
 		Collections.sort( Narabikae, new RankingComparator() ); //スコアの低い者が上にくる（つまりハイスコア
 		for ( int i = 0; i < getCARRList().size(); i++ ) {
 			Housedata House1 = getCARRList().get(i).getHouseC1();
@@ -66,14 +83,27 @@ public class CostAndRangeRanking {
 			//家具が０の場合強制的にスコアを０にすることで優先交換を実装
 			
 			if ( LowScore.getHPA() != null ) {
-				if( LowScore.getScore() == 0 ) System.out.println(LowScore.getScore());
 				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
 			}
 		}
 		MinusDur MDD = new MinusDur();
 		MDD.Minus(RF);
 	}
-		
+	private void HouseSearchNoneandDouble ( int HouseNumber, ReadFile RF, ConnectPoint CP  ) { //ナイ人とだぶってる人どうしとをまずやる
+		for ( int i = 0; i < HouseNumber; i++ ) {
+			Housedata A1 = null;
+			Housedata A2 = null;
+			if ( RF.getHouseList ().get ( i ).FurnitureList.size() == 0 ) A1 = RF.getHouseList ().get ( i ); //交換の主体
+			for ( int j = 0; j < HouseNumber; j++ ) {
+				if ( RF.getHouseList ().get ( i ).FurnitureList.size() >= 2 ) A2 = RF.getHouseList ().get ( j ); //相手先
+			}
+			if ( A1 != null && A2 != null  ) {
+				int Range = MARange ( A1, A2, CP );
+				int Cost = FurnitureCost ( A1, A2 );
+				new CostAndRangeRankingList ( Cost, Range, A1, A2, this, getHPA2() );
+			}
+		}
+	}
 	private void HouseSearch ( int HouseNumber, ReadFile RF, ConnectPoint CP ) { //家の総当たりメソッド
 		for ( int i = 0; i< HouseNumber; i++ ) { //交換商品の検索
 			for ( int j = 0; j < HouseNumber; j++ ) {
@@ -139,7 +169,6 @@ class CostAndRangeRankingList {
 	public void setScore(int score) {
 		Score = score;
 	}
-	
 	public int getRange() {
 		return Range;
 	}

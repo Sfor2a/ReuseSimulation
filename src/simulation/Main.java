@@ -7,9 +7,9 @@ public class Main {
 		
 		for ( int i = 0; i<110; i++ ) {
 			System.out.println(i+"ターン目");
-			CRR.CARRCreate();
+			CRR.CARRCreate(); //ランクを作り、交換し
 			WriteOutData WOR = new WriteOutData();
-			WOR.WriteOut ( CRR, i );
+			WOR.WriteOut ( CRR, i ); //結果を出す
 		}
 	}
 
