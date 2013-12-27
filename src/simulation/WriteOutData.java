@@ -37,6 +37,23 @@ public class WriteOutData {
 		} catch ( IOException e ) {
 			System.err.println ( "File cannot be Writed." );
 		} //printlnの用意
+		
+		
+		try {
+			for ( int i = 0; i < RR.getHouseList().size(); i++  ) {
+				for ( int j = 0; j < RR.getHouseList().get(i).getFurnitureList().size(); j++ ) {
+					HPAdata A1 = RR.getHouseList().get(i).getFurnitureList().get(j);
+					File file1 = new File ( ".\\recycle\\WriteOut\\WritedOutlog"+ A1.getID() +"_data.txt" ); //書き込むファイル名
+					pw = new PrintWriter (new BufferedWriter ( new FileWriter ( file1, true ) ) );
+					pw.println( "=============" + Term + "ターム目=============" );
+					pw.println( RR.getHouseList().get(i).getName() );
+					pw.close();
+				}
+			}
+		} catch ( IOException e ) {
+			System.err.println ( "File cannot be Writed." );
+		} //printlnの用意
+		
 	}
 }
 
