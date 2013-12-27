@@ -47,7 +47,7 @@ public class CostAndRangeRanking {
 	
 	
 	@SuppressWarnings("unchecked")
-	public void CARRCreate () {		
+	public void CARRCreate ( int TermCount ) {		
 		HouseSearchNoneandDouble ( HouseNumber, RF, CP ); //さきにダブりとなしの家の交換を実施
 		CostAndRangeRankingList LowScore; //ハイスコアな家を用意しておく
 		List < CostAndRangeRankingList > Narabikae = getCARRList();
@@ -62,7 +62,7 @@ public class CostAndRangeRanking {
 				}
 			}
 			if ( LowScore.getHPA() != null ) {
-				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
+				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount ); //ハイスコアなもので交換するよ
 			}
 		}
 		
@@ -83,7 +83,7 @@ public class CostAndRangeRanking {
 			//家具が０の場合強制的にスコアを０にすることで優先交換を実装
 			
 			if ( LowScore.getHPA() != null ) {
-				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA() ); //ハイスコアなもので交換するよ
+				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount ); //ハイスコアなもので交換するよ
 			}
 		}
 		MinusDur MDD = new MinusDur();
