@@ -62,7 +62,7 @@ public class CostAndRangeRanking {
 				}
 			}
 			if ( LowScore.getHPA() != null ) {
-				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount ); //ハイスコアなもので交換するよ
+				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount, LowScore ); //ハイスコアなもので交換するよ
 			}
 		}
 		
@@ -83,7 +83,7 @@ public class CostAndRangeRanking {
 			//家具が０の場合強制的にスコアを０にすることで優先交換を実装
 			
 			if ( LowScore.getHPA() != null ) {
-				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount ); //ハイスコアなもので交換するよ
+				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount, LowScore ); //ハイスコアなもので交換するよ
 			}
 		}
 		MinusDur MDD = new MinusDur();
@@ -202,7 +202,7 @@ class CostAndRangeRankingList {
 		setRange ( Ra );
 		setA1 ( a1 );
 		setA2 ( a2 );
-		setScore ( Co * Ra );
+		setScore ( Co * 1 );
 		setHPA( HPA3 );
 		CARR.setCARRList( this );
 	}
