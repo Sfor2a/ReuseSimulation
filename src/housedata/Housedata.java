@@ -66,6 +66,7 @@ public class Housedata extends HouseElements {
 					else if ( str.startsWith ( "Value " ) ) {
 						String[] strAry = str.split( " ", 2 );
 						FurnitureAry[1] = strAry[1];
+						//System.out.print(strAry[1]+",");
 					}
 					else if ( str.startsWith ( "Minus " ) ) {
 						String[] strAry = str.split( " ", 2 );
@@ -74,6 +75,7 @@ public class Housedata extends HouseElements {
 					else if ( str.startsWith ( "Spec " ) ) {
 						String[] strAry = str.split( " ", 2 );
 						FurnitureAry[3] = strAry[1];
+						//System.out.println(strAry[1]);
 					}
 					else if ( str1.startsWith ( "//" ) ); //ƒRƒƒ“ƒg•¶‚ğŒŸo‚·‚é‚Æ‰½‚à‚µ‚È‚¢
 					else System.out.println( "err." );
