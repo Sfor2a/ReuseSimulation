@@ -53,14 +53,7 @@ public class CostAndRangeRanking {
 		List < CostAndRangeRankingList > Narabikae = getCARRList();
 		Collections.sort( Narabikae, new RankingComparator() ); //スコアの低い者が上にくる（つまりハイスコア
 		for ( int i = 0; i < getCARRList().size(); i++ ) {
-			Housedata House1 = getCARRList().get(i).getHouseC1();
 			LowScore = getCARRList().get(i);
-			for ( int j = 0; j< getCARRList().size(); j++ ) {
-				Housedata House2 = getCARRList().get(j).getHouseC1();
-				if ( House2.getName().equals( House1.getName() ) && getCARRList().get(j).getScore() < LowScore.getScore() ) { //同じ名前の家の時に、スコアの高い家がみつかったら（つまり一番答えが低いｗ
-					LowScore = getCARRList().get(j); //ハイスコアのところを更新
-				}
-			}
 			if ( LowScore.getHPA() != null ) {
 				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount, LowScore ); //ハイスコアなもので交換するよ
 			}
@@ -71,17 +64,7 @@ public class CostAndRangeRanking {
 		Narabikae = getCARRList();
 		Collections.sort( Narabikae, new RankingComparator() ); //スコアの低い者が上にくる（つまりハイスコア
 		for ( int i = 0; i < getCARRList().size(); i++ ) {
-			Housedata House1 = getCARRList().get(i).getHouseC1();
-			LowScore = getCARRList().get(i);
-			for ( int j = 0; j< getCARRList().size(); j++ ) {
-				Housedata House2 = getCARRList().get(j).getHouseC1();
-				if ( House2.getName().equals( House1.getName() ) && getCARRList().get(j).getScore() < LowScore.getScore() ) { //同じ名前の家の時に、スコアの高い家がみつかったら（つまり一番答えが低いｗ
-					LowScore = getCARRList().get(j); //ハイスコアのところを更新
-				}
-			}
-			
-			//家具が０の場合強制的にスコアを０にすることで優先交換を実装
-			
+			LowScore = getCARRList().get(i);			
 			if ( LowScore.getHPA() != null ) {
 				new Exchange ( LowScore.getHouseC1(), LowScore.getHouseC2(), LowScore.getHPA(), TermCount, LowScore ); //ハイスコアなもので交換するよ
 			}

@@ -26,10 +26,10 @@ public class Exchange {
 				A1.getFurnitureList().add ( F1 ); //家具が追加される
 				A1.setCoin ( A1.getCoin() - str6 );//A1の家からコインがへって
 				A2.setCoin ( A2.getCoin() + str6 );//コインがたされる
-				//System.out.println( A1.getName () + "交換元<->交換先" + A2.getName() );
-				//System.out.println( str6 + "払って<->もらう" + F1.getName () );
-				System.out.print( lowScore.getCost() + ":");
-				System.out.println( lowScore.getRange() );
+				System.out.println( A1.getName () + "交換元<->交換先" + A2.getName() );
+				System.out.println( str6 + "払って<->もらう" + F1.getName () );
+				//System.out.print( lowScore.getCost() + ":");
+				//System.out.println( lowScore.getRange() );
 				
 			}
 		}

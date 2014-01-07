@@ -29,8 +29,11 @@ public class Rangefinder {
 				
 				RouteArray[i][l] = (int) Length * Costs; //‹——£‚ğ‘ã“üi‚¨‚à‚Ä
 				RouteArray[l][i] = (int) Length * Costs ; //‹——£‚ğ‘ã“üi‚¤‚ç
+				//System.out.println((int)Length + ","+Costs);
 			}
+			
 		}
+		//System.out.println("‚±‚±‚Ü‚Å");
 		
 	}
 	
